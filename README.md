@@ -90,3 +90,13 @@ end
     File checks – Possibly investigating suspicious system files or confirming integrity on a FortiGate.
 
     Firewall configuration – Creates address objects for malicious IPs, groups them together, and includes them in a broader Geo_Block policy for blocking.
+
+Quick read:
+
+    Each /32 IP = individual address object
+
+    Those get grouped into “Malicious IPs” (addrgrp)
+
+    “Geo_Block” includes “Malicious IPs”
+
+    Any firewall policy that references Geo_Block will match (and block/allow per the policy action) those IPs. 
