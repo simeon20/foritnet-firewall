@@ -1,0 +1,66 @@
+Searching for files/directory
+
+fnsysctl ls -la /data/lib/libips.bak
+fnsysctl ls -la /data/lib/libgif.so
+fnsysctl ls -la /data/lib/libiptcp.so
+fnsysctl ls -la /data/lib/libipudp.so
+fnsysctl ls -la /data/lib/libjepg.so
+fnsysctl ls -la /var/.sslvpnconfigbk
+fnsysctl ls -la /data/etc/wxd.conf
+fnsysctl ls -la /flash
+
+config firewall address
+
+edit 188.34.130.40
+
+set color 6
+
+set type ipmask
+
+set subnet 188.34.130.40/32
+
+next
+
+edit 103.131.189.143
+
+set color 6
+
+set type ipmask
+
+set subnet 103.131.189.143/32
+
+next
+
+edit 192.36.119.61
+
+set color 6
+
+set type ipmask
+
+set subnet 192.36.119.61/32
+
+next
+
+edit 172.247.168.153
+
+set color 6
+
+set type ipmask
+
+set subnet 172.247.168.153/32
+
+end
+
+config firewall addrgrp
+edit "Malicious IPs"
+set color 6
+append member "188.34.130.40" "192.36.119.61" "172.247.168.153" "103.131.189.143"
+next
+end
+
+config firewall addrgrp
+edit "Geo_Block"
+append member "Malicious IPs"
+end
+
+
