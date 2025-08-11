@@ -1,0 +1,88 @@
+Make sure you’re on your firewall’s CLI
+
+    FortiGate: You can SSH in, use the console port, or go to GUI → Dashboard → CLI Console.
+
+    Make sure you have an admin account or sufficient privileges to edit firewall policies and objects.
+
+2️⃣ Replace with your IPs
+
+Anywhere you see:
+
+188.34.130.40
+103.131.189.143
+192.36.119.61
+172.247.168.153
+
+Replace them with the IPs you actually want to block.
+Example for one host:
+
+edit "BLOCK_203.0.113.55"
+set type ipmask
+set subnet 203.0.113.55/32
+next
+
+💡 Tip:
+
+    /32 = single host
+
+    /24 = entire Class C subnet (256 addresses)
+
+    Make the object name clear (BLOCK_ prefix helps track later).
+
+3️⃣ Give the group a meaningful name
+
+Change:
+
+edit "Malicious IPs"
+
+to something relevant to your case, like:
+
+edit "Manual_Block_List"
+
+4️⃣ Add the group to a blocking firewall policy
+
+Your config so far only creates objects & groups — it does NOT block traffic until the group is used in a policy.
+
+Example to create a deny rule for inbound traffic:
+
+config firewall policy
+edit 0
+set name "Block Manual IPs"
+set srcintf "any"
+set dstintf "any"
+set srcaddr "Manual_Block_List"
+set action deny
+set schedule "always"
+set service "ALL"
+set logtraffic all
+next
+end
+
+For outbound blocks, flip srcaddr and dstaddr placement depending on your network direction.
+5️⃣ Save the config
+
+On FortiGate:
+
+execute backup config flash
+
+or
+
+execute backup config tftp <filename> <tftp_server_ip>
+
+so your changes survive a reboot.
+6️⃣ Test the block
+
+    Try pinging or accessing the blocked IP from a test device.
+
+    Check diag debug flow or the logs to confirm the firewall is matching the deny rule.
+
+✅ Summary of what you’ll change:
+
+    Update IPs to the ones you want blocked.
+
+    Rename objects and groups for clarity.
+
+    Add the group into a firewall policy with deny.
+
+    Save and test.
+
