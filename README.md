@@ -18,7 +18,7 @@ fnsysctl ls -la /var/.sslvpnconfigbk     # Hidden backup config for SSL VPN
 fnsysctl ls -la /data/etc/wxd.conf       # WX daemon configuration file
 fnsysctl ls -la /flash                   # Lists the contents of the flash storage root
 
-💡 Purpose: Likely part of a forensic or compromise check—these paths could be used by malware on FortiGate devices.
+Purpose: Likely part of a forensic or compromise check—these paths could be used by malware on FortiGate devices.
 Firewall Address Object Creation
 
 These commands create individual firewall address objects for specific IPs.
