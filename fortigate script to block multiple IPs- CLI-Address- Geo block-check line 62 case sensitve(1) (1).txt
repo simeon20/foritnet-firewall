@@ -11,43 +11,43 @@ fnsysctl ls -la /flash
 
 config firewall address
 
-edit 188.34.130.40
+edit 188.xx.xxx.xxx
 
 set color 6
 
 set type ipmask
 
-set subnet 188.34.130.40/32
+set subnet 188.xxx.xxx.xxx/32
 
 next
 
-edit 103.131.189.143
+edit 103.xx.xxx.xxx
 
 set color 6
 
 set type ipmask
 
-set subnet 103.131.189.143/32
+set subnet 103.xxx.xxx.xxx/32
 
 next
 
-edit 192.36.119.61
+edit 192.xx.xxx.xxx
 
 set color 6
 
 set type ipmask
 
-set subnet 192.36.119.61/32
+set subnet xxx.xxx.xxx.xx/xx
 
 next
 
-edit 172.247.168.153
+edit 172.xxx.xxx.xxx
 
 set color 6
 
 set type ipmask
 
-set subnet 172.247.168.153/32
+set subnet 172.xxx.xxx.xxx/xx
 
 end
 
