@@ -8,17 +8,17 @@ Make sure you’re on your firewall’s CLI
 
 Anywhere you see:
 
-188.34.130.40
-103.131.189.143
-192.36.119.61
-172.247.168.153
+188.xxx.xxx.xx
+103.xxx.xxx.xx
+192.xxx.xxx.xxx
+172.xxx.xxx.xxx
 
 Replace them with the IPs you actually want to block.
 Example for one host:
 
 edit "BLOCK_203.0.113.55"
 set type ipmask
-set subnet 203.0.113.55/32
+set subnet xxx.xxx.xxx.xxx/xx
 next
 
 💡 Tip:
